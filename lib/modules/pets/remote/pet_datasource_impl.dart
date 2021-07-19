@@ -2,7 +2,9 @@ import 'package:clean_mello/modules/core/modules/http/http_adapter.dart';
 import 'package:clean_mello/modules/core/modules/http/http_error.dart';
 import 'package:clean_mello/modules/pets/data/datasource/pet_datasource.dart';
 import 'package:clean_mello/modules/pets/data/models/pet_model.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: PetDatasource)
 class PetDatasourceImpl implements PetDatasource {
   final HttpAdapter httpAdapter;
 
