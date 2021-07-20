@@ -13,6 +13,7 @@ class PetRepositoryImpl implements PetRepository {
   Future<List<PetEntity>> getPets() async {
     final listPetModels = await petDatasource.getPetsFromRemote();
 
+    //Por opção pode consumir o mapper aqui também (model -> entity)
     final listPetEntities = listPetModels.map((e) => e.toEntity(e)).toList();
     return listPetEntities;
   }

@@ -1,5 +1,5 @@
 import 'package:clean_mello/modules/core/configure_dependencies.dart';
-import 'package:clean_mello/modules/pets/presenter/pages/listPets.dart';
+import 'package:clean_mello/modules/pets/presentation/pages/listPets.dart';
 import 'package:flutter/material.dart';
 
 void main() {
