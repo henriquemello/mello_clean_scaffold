@@ -1,4 +1,5 @@
 import 'package:clean_mello/modules/pets/data/datasource/pet_datasource.dart';
+import 'package:clean_mello/modules/pets/data/mapper/pet_mapper.dart';
 import 'package:clean_mello/modules/pets/domain/entity/pet_entity.dart';
 import 'package:clean_mello/modules/pets/domain/repository/pet_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -6,15 +7,15 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: PetRepository)
 class PetRepositoryImpl implements PetRepository {
   final PetDatasource petDatasource;
+  final PetMapper petMapper;
 
-  PetRepositoryImpl(this.petDatasource);
+  PetRepositoryImpl(this.petDatasource, this.petMapper);
 
   @override
   Future<List<PetEntity>> getPets() async {
     final listPetModels = await petDatasource.getPetsFromRemote();
 
-    //Por opção pode consumir o mapper aqui também (model -> entity)
-    final listPetEntities = listPetModels.map((e) => e.toEntity(e)).toList();
+    final listPetEntities = listPetModels.map((e) => petMapper.toEntity(e)).toList();
     return listPetEntities;
   }
 }

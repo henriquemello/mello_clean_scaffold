@@ -9,7 +9,7 @@ class PetStore = _PetStore with _$PetStore;
 
 abstract class _PetStore with Store {
   @observable
-  List<PetEntity> listPets;
+  List<PetEntity> listPets = [];
 
   @action
   setListPets(value) => listPets = value;
