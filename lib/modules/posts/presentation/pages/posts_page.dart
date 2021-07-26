@@ -28,9 +28,18 @@ class _PostsPageState extends State<PostsPage> {
           width: double.infinity,
           child: Column(
             children: [
-              RaisedButton(
-                child: Text("Buscar posts.."),
-                onPressed: controller.getPosts,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  RaisedButton(
+                    child: Text("btnSearch".tr),
+                    onPressed: controller.getPosts,
+                  ),
+                  RaisedButton(
+                    child: Text("btnChangeLocale".tr),
+                    onPressed: controller.changeLocale,
+                  ),
+                ],
               ),
               Expanded(
                 child: Center(

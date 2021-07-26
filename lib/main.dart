@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'modules/core/di/app_binding.dart';
+import 'modules/core/i18n/translations.dart';
 import 'modules/core/modules/pages.dart';
 import 'modules/core/modules/routes.dart';
 
@@ -20,6 +22,10 @@ class MyApp extends StatelessWidget {
       ),
       getPages: Pages.routes,
       initialRoute: Routes.initialRoute,
+      initialBinding: AppBinding(),
+      translations: Messages(),
+      locale: Locale('pt', 'BR'),
+      fallbackLocale: Locale('pt', 'BR'),
     );
   }
 }
