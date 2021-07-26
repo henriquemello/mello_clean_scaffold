@@ -1,4 +1,3 @@
-
 import 'package:clean_mello/modules/core/modules/http/http_request.dart';
 
 class HttpResponse {
