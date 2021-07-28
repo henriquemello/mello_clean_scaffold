@@ -8,6 +8,6 @@ part of 'pet_model.dart';
 
 PetModel _$PetModelFromJson(Map<String, dynamic> json) {
   return PetModel(
-    nomeCompletoPet: json['nomeCompletoPet'] as String,
+    name: json['name'] as String,
   );
 }

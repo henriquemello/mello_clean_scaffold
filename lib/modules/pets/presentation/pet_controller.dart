@@ -11,14 +11,16 @@ class PetController {
   PetController(this.petPresenter, this.petStore);
 
   Future getPets() async {
-    //setLoading true
+    petStore.setLoading(true);
     try {
       final request = await petPresenter.getPets();
       petStore.setListPets(request);
     } on HttpError catch (e) {
       print('error $e');
     } finally {
-      //setLoading false
+      petStore.setLoading(false);
     }
   }
+
+  void clearPets() => petStore.clearPets();
 }

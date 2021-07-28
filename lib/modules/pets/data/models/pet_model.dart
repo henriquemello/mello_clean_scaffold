@@ -4,10 +4,10 @@ part 'pet_model.g.dart';
 
 @JsonSerializable(createToJson: false)
 class PetModel {
-  final String nomeCompletoPet;
+  final String name;
 
   PetModel({
-    this.nomeCompletoPet,
+    this.name,
   });
 
   factory PetModel.fromJson(Map<String, dynamic> json) =>

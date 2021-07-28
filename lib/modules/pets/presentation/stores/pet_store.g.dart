@@ -24,6 +24,21 @@ mixin _$PetStore on _PetStore, Store {
     });
   }
 
+  final _$isLoadingAtom = Atom(name: '_PetStore.isLoading');
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   final _$_PetStoreActionController = ActionController(name: '_PetStore');
 
   @override
@@ -38,9 +53,32 @@ mixin _$PetStore on _PetStore, Store {
   }
 
   @override
+  dynamic clearPets() {
+    final _$actionInfo =
+        _$_PetStoreActionController.startAction(name: '_PetStore.clearPets');
+    try {
+      return super.clearPets();
+    } finally {
+      _$_PetStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic setLoading(dynamic value) {
+    final _$actionInfo =
+        _$_PetStoreActionController.startAction(name: '_PetStore.setLoading');
+    try {
+      return super.setLoading(value);
+    } finally {
+      _$_PetStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-listPets: ${listPets}
+listPets: ${listPets},
+isLoading: ${isLoading}
     ''';
   }
 }

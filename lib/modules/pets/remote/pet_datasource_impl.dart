@@ -13,7 +13,7 @@ class PetDatasourceImpl implements PetDatasource {
   @override
   Future<List<PetModel>> getPetsFromRemote() async {
     try {
-      final response = await httpAdapter.get('path');
+      final response = await httpAdapter.get('https://jsonplaceholder.typicode.com/users');
 
       return PetModel.fromJsonList(response.data);
     } on HttpError catch (e) {

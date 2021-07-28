@@ -11,6 +11,15 @@ abstract class _PetStore with Store {
   @observable
   List<PetEntity> listPets = [];
 
+  @observable
+  bool isLoading = false;
+
   @action
   setListPets(value) => listPets = value;
+
+  @action
+  clearPets() => listPets = [];
+
+  @action
+  setLoading(value) => isLoading = value;
 }
