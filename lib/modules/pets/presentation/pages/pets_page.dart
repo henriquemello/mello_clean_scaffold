@@ -26,12 +26,12 @@ class PetsPage extends StatelessWidget {
                 child: Text("Limpar "),
                 onPressed: onClear,
               ),
-              Observer(
-                builder: (context) {
-                  return controller.petStore.isLoading
-                      ? CircularProgressIndicator()
-                      : Expanded(
-                          child: ListView.builder(
+              Expanded(
+                child: Observer(
+                  builder: (context) {
+                    return controller.petStore.isLoading
+                        ? Center(child: CircularProgressIndicator())
+                        : ListView.builder(
                             itemCount: controller.petStore.listPets.length,
                             itemBuilder: (context, index) {
                               final pet = controller.petStore.listPets[index];
@@ -41,9 +41,9 @@ class PetsPage extends StatelessWidget {
                                 child: CardPets(pet.nome),
                               );
                             },
-                          ),
-                        );
-                },
+                          );
+                  },
+                ),
               ),
             ],
           ),
@@ -52,13 +52,7 @@ class PetsPage extends StatelessWidget {
     );
   }
 
-  void onSearch() {
-    controller.getPets();
-    return;
-  }
+  void onSearch() => controller.getPets();
 
-  void onClear() {
-    controller.clearPets();
-    return;
-  }
+  void onClear() => controller.clearPets();
 }

@@ -10,7 +10,7 @@ class PetPresenterImple implements PetPresenter {
   PetPresenterImple(this.getPetsUsecase);
 
   @override
-  Future<List<PetEntity>> getPets() {
-    return getPetsUsecase();
+  Future<List<PetEntity>> getPets() async {
+    return await getPetsUsecase();
   }
 }

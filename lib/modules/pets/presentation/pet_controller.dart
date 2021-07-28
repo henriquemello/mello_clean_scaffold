@@ -10,7 +10,7 @@ class PetController {
 
   PetController(this.petPresenter, this.petStore);
 
-  Future getPets() async {
+  void getPets() async {
     petStore.setLoading(true);
     try {
       final request = await petPresenter.getPets();
