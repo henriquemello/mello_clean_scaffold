@@ -37,8 +37,8 @@ class UsersPage extends StatelessWidget {
                               final user = controller.userStore.listUsers[index];
                               return Container(
                                 padding: EdgeInsets.all(8),
-                                height: 30,
-                                child: CardUsers(user.nome),
+                                height: 70,
+                                child: CardUsers(user),
                               );
                             },
                           );

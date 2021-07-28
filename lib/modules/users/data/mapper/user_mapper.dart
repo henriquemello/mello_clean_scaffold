@@ -8,6 +8,7 @@ class UserMapper {
   UserEntity toEntity(UserModel model) {
     return UserEntity(
       nome: model.name,
+      email: model.email,
     );
   }
 }

@@ -5,9 +5,11 @@ part 'user_model.g.dart';
 @JsonSerializable(createToJson: false)
 class UserModel {
   final String name;
+  final String email;
 
   UserModel({
     this.name,
+    this.email
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
