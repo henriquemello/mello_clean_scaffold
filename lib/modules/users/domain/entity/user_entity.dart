@@ -1,6 +1,6 @@
-class PetEntity {
+class UserEntity {
   String nome;
-  PetEntity({
+  UserEntity({
     this.nome,
   });
 }

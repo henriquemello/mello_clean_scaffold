@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CardPets extends StatelessWidget {
+class CardUsers extends StatelessWidget {
   final String nome;
 
-  const CardPets(this.nome);
+  const CardUsers(this.nome);
 
   @override
   Widget build(BuildContext context) {

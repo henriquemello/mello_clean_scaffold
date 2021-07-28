@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'pet_model.dart';
+part of 'user_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-PetModel _$PetModelFromJson(Map<String, dynamic> json) {
-  return PetModel(
+UserModel _$UserModelFromJson(Map<String, dynamic> json) {
+  return UserModel(
     name: json['name'] as String,
   );
 }

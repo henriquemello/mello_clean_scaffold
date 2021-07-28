@@ -1,5 +1,5 @@
 import 'package:clean_mello/modules/core/configure_dependencies.dart';
-import 'package:clean_mello/modules/pets/presentation/pages/pets_page.dart';
+import 'package:clean_mello/modules/users/presentation/pages/user_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: PetsPage(),
+      home: UsersPage(),
     );
   }
 }
