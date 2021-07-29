@@ -36,8 +36,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i6.UserDatasource>(
       () => _i7.UserDatasourceImpl(get<_i4.HttpAdapter>()));
   gh.lazySingleton<_i8.UserMapper>(() => _i8.UserMapper());
-  gh.lazySingleton<_i9.UserRepository>(() => _i10.UserRepositoryImpl(
-      get<_i6.UserDatasource>(), get<_i8.UserMapper>()));
+  gh.lazySingleton<_i9.UserRepository>(
+      () => _i10.UserRepositoryImpl(get<_i6.UserDatasource>()));
   gh.factory<_i11.UserStore>(() => _i11.UserStore());
   gh.lazySingleton<_i12.UsersPage>(() => _i12.UsersPage());
   gh.lazySingleton<_i13.GetUsersUsecase>(

@@ -7,24 +7,14 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: UserRepository)
 class UserRepositoryImpl implements UserRepository {
   final UserDatasource userDatasource;
-  final UserMapper userMapper;
 
-  UserRepositoryImpl(this.userDatasource, this.userMapper);
+  UserRepositoryImpl(this.userDatasource);
 
   @override
   Future<List<UserEntity>> getUsers() async {
     final listUserModels = await userDatasource.getUsersFromRemote();
 
-    final listUserEntities = listUserModels.map((e) => userMapper.toEntity(e)).toList();
+    final listUserEntities = listUserModels.map((e) => UserMapper.toEntity(e)).toList();
     return listUserEntities;
   }
-  
-  // @override
-  // Future<List<UserEntity>> getUsers() async {
-  //   final listUserModels = await userDatasource.getUsersFromRemote2();
-
-  //   final listUserEntities = listUserModels.map((e) => e.toEntity()).toList();
-  //   return listUserEntities;
-  // }
-
 }

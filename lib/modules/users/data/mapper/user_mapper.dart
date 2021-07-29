@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 
 @lazySingleton
 class UserMapper {
-  UserEntity toEntity(UserModel model) {
+  static UserEntity toEntity(UserModel model) {
     return UserEntity(
       nome: model.name,
       email: model.email,

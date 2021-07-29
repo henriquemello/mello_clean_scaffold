@@ -6,7 +6,6 @@ part 'user_model.g.dart';
 @JsonSerializable(explicitToJson: true)
 class UserModel {
   final String name;
-  //@JsonKey(name:'email')
   final String email;
   final AddressModel address;
 
