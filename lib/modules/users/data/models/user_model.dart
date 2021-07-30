@@ -4,7 +4,7 @@ part 'user_model.g.dart';
 
 @JsonSerializable(createToJson: false)
 class UserModel {
-  final String name;
+  final String? name;
 
   UserModel({
     this.name,
@@ -14,5 +14,5 @@ class UserModel {
       _$UserModelFromJson(json);
 
   static List<UserModel> fromJsonList(List<dynamic> json) =>
-      json.map((i) => UserModel.fromJson(i)).toList() ?? [];
+      json.map((i) => UserModel.fromJson(i)).toList();
 }

@@ -18,11 +18,13 @@ class UsersPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              RaisedButton(
+              ElevatedButton(
+                key: Key('search'),
                 child: Text("Buscar usuários"),
                 onPressed: onSearch,
               ),
-              RaisedButton(
+              ElevatedButton(
+                key: Key('clean'),
                 child: Text("Limpar "),
                 onPressed: onClear,
               ),
@@ -30,11 +32,20 @@ class UsersPage extends StatelessWidget {
                 child: Observer(
                   builder: (context) {
                     return controller.userStore.isLoading
-                        ? Center(child: CircularProgressIndicator())
+                        ? Center(
+                            key: Key('loading'),
+                            child: CircularProgressIndicator(),
+                          )
+                        // ? Container(
+                        //     key: Key('loading'),
+                        //     color: Colors.red,
+                        //   )
                         : ListView.builder(
+                            key: Key('list'),
                             itemCount: controller.userStore.listUsers.length,
                             itemBuilder: (context, index) {
-                              final user = controller.userStore.listUsers[index];
+                              final user =
+                                  controller.userStore.listUsers[index];
                               return Container(
                                 padding: EdgeInsets.all(8),
                                 height: 30,

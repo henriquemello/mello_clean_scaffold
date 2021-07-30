@@ -1,5 +1,5 @@
 class UserEntity {
-  String nome;
+  String? nome;
   UserEntity({
     this.nome,
   });

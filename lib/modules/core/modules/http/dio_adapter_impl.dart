@@ -11,17 +11,17 @@ class DioAdapterImpl implements HttpAdapter {
   final Dio dio;
 
   DioAdapterImpl({
-    this.dio,
+    required this.dio,
   });
 
   Future<HttpResponse> request({
     method,
     path,
     dynamic data,
-    Map<String, dynamic> headers,
-    Map<String, dynamic> queryParameters,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? queryParameters,
   }) async {
-    HttpRequest httpRequest;
+    late HttpRequest httpRequest;
     try {
       httpRequest = HttpRequest(
           method: method,
@@ -40,15 +40,15 @@ class DioAdapterImpl implements HttpAdapter {
 
       HttpResponse response = HttpResponse(
           data: dioResponse.data,
-          statusCode: dioResponse.statusCode,
+          statusCode: dioResponse.statusCode ?? 200,
           httpRequest: httpRequest);
 
       return response;
     } on DioError catch (e) {
-      if (e.type == DioErrorType.RESPONSE)
+      if (e.type == DioErrorType.response)
         throw HttpError(
-            data: e.response.data,
-            statusCode: e.response.statusCode,
+            data: e.response?.data,
+            statusCode: e.response?.statusCode ?? 500,
             httpRequest: httpRequest);
       rethrow;
     } catch (e) {
@@ -59,8 +59,8 @@ class DioAdapterImpl implements HttpAdapter {
   @override
   Future<HttpResponse> get(
     String path, {
-    Map<String, dynamic> queryParameters,
-    Map<String, dynamic> headers,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
   }) async =>
       request(
           method: 'GET',
@@ -72,8 +72,8 @@ class DioAdapterImpl implements HttpAdapter {
   Future<HttpResponse> post(
     String path, {
     dynamic data,
-    Map<String, dynamic> queryParameters,
-    Map<String, dynamic> headers,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
   }) async =>
       request(
           method: 'POST',
@@ -86,8 +86,8 @@ class DioAdapterImpl implements HttpAdapter {
   Future<HttpResponse> put(
     String path, {
     dynamic data,
-    Map<String, dynamic> queryParameters,
-    Map<String, dynamic> headers,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
   }) async =>
       request(
           method: 'PUT',
@@ -100,8 +100,8 @@ class DioAdapterImpl implements HttpAdapter {
   Future<HttpResponse> delete(
     String path, {
     dynamic data,
-    Map<String, dynamic> queryParameters,
-    Map<String, dynamic> headers,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
   }) async =>
       request(
           method: 'DELETE',

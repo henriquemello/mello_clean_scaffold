@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CardUsers extends StatelessWidget {
-  final String nome;
+  final String? nome;
 
   const CardUsers(this.nome);
 

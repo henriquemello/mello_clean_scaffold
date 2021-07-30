@@ -2,12 +2,12 @@ class HttpRequest {
   final String method;
   final String path;
   final dynamic data;
-  final Map<String, dynamic> queryParameters;
-  final Map<String, dynamic> headers;
+  final Map<String, dynamic>? queryParameters;
+  final Map<String, dynamic>? headers;
 
   HttpRequest({
-    this.method,
-    this.path,
+    required this.method,
+    required this.path,
     this.data,
     this.queryParameters,
     this.headers,

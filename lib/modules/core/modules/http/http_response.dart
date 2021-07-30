@@ -1,4 +1,3 @@
-
 import 'package:clean_mello/modules/core/modules/http/http_request.dart';
 
 class HttpResponse {
@@ -8,7 +7,7 @@ class HttpResponse {
 
   HttpResponse({
     this.data,
-    this.statusCode,
-    this.httpRequest,
+    required this.statusCode,
+    required this.httpRequest,
   });
 }
