@@ -33,13 +33,8 @@ class UsersPage extends StatelessWidget {
                   builder: (context) {
                     return controller.userStore.isLoading
                         ? Center(
-                            key: Key('loading'),
                             child: CircularProgressIndicator(),
                           )
-                        // ? Container(
-                        //     key: Key('loading'),
-                        //     color: Colors.red,
-                        //   )
                         : ListView.builder(
                             key: Key('list'),
                             itemCount: controller.userStore.listUsers.length,

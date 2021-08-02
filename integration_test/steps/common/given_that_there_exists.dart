@@ -4,7 +4,7 @@ import 'package:gherkin/gherkin.dart';
 
 StepDefinitionGeneric GivenThatThereExists() {
   return given1<String, FlutterWorld>(
-    RegExp(r'Given I expect that there is a {string}'),
+    RegExp(r'I expect that there is a {string}'),
     (key, context) async {
       final widgetFinder = context.world.appDriver.findBy(key, FindType.key);
 

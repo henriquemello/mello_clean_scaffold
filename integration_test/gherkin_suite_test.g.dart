@@ -48,6 +48,13 @@ class _CustomGherkinIntegrationTestRunner extends GherkinIntegrationTestRunner {
             );
 
             await runStep(
+              'And I should see cards',
+              <String>[],
+              null,
+              dependencies,
+            );
+
+            await runStep(
               'And I tap the "clean" button',
               <String>[],
               null,
