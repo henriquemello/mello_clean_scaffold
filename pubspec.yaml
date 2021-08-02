@@ -40,7 +40,7 @@ dev_dependencies:
   build_runner: 
   injectable_generator:
   mobx_codegen:
-  flutter_gherkin: ^2.0.0
+  flutter_gherkin: ^3.0.0-rc.2
   integration_test:
     sdk: flutter
 
