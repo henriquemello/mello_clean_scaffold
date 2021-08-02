@@ -7,7 +7,7 @@ class HttpError implements Exception {
 
   HttpError({
     this.data,
-    this.statusCode,
-    this.httpRequest,
+    required this.statusCode,
+    required this.httpRequest,
   });
 }

@@ -24,14 +24,13 @@ class PostPage extends GetView<PostController> {
           child: Column(
             children: [
               Text(
-                post.title.capitalizeFirst,
-                style: Theme.of(context).textTheme.headline5,
+                post.title.capitalizeFirst!,
               ),
               SizedBox(
                 height: 12,
               ),
               Text(
-                post.body.capitalizeFirst,
+                post.body.capitalizeFirst!,
               ),
             ],
           ),

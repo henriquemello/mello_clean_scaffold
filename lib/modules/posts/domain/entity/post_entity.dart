@@ -3,7 +3,7 @@ class PostEntity {
   String body;
 
   PostEntity({
-    this.title,
-    this.body,
+    required this.title,
+    required this.body,
   });
 }

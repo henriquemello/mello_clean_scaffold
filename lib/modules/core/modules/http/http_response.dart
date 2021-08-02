@@ -7,7 +7,7 @@ class HttpResponse {
 
   HttpResponse({
     this.data,
-    this.statusCode,
-    this.httpRequest,
+    required this.statusCode,
+    required this.httpRequest,
   });
 }

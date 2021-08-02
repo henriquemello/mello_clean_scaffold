@@ -5,6 +5,7 @@ import 'modules/core/di/app_binding.dart';
 import 'modules/core/i18n/translations.dart';
 import 'modules/core/modules/pages.dart';
 import 'modules/core/modules/routes.dart';
+import 'modules/core/presentation/theme/theme_data.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,10 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: ThemeConfig.lightThemeData,
+      darkTheme: ThemeConfig.darkThemeData,
+      themeMode: ThemeMode.light,
       getPages: Pages.routes,
       initialRoute: Routes.initialRoute,
       initialBinding: AppBinding(),

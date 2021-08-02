@@ -6,11 +6,11 @@ class HttpRequest {
   final Map<String, dynamic> headers;
 
   HttpRequest({
-    this.method,
-    this.path,
-    this.data,
-    this.queryParameters,
-    this.headers,
+    required this.method,
+    required this.path,
+    required this.data,
+    required this.queryParameters,
+    required this.headers,
   });
 
   HttpRequest addHeaders(

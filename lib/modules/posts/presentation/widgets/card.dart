@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CardPosts extends StatelessWidget {
   final String tittle;
   final String body;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   const CardPosts(
     this.tittle,
@@ -16,10 +16,10 @@ class CardPosts extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       title: Text(
-        tittle ?? "sem nome",
+        tittle,
       ),
       subtitle: Text(
-        body ?? "sem nome",
+        body,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         textAlign: TextAlign.justify,

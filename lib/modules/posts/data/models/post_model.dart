@@ -1,8 +1,8 @@
 class PostModel {
   PostModel({
-    this.id,
-    this.title,
-    this.body,
+    required this.id,
+    required this.title,
+    required this.body,
   });
 
   final int id;
@@ -16,5 +16,5 @@ class PostModel {
       );
 
   static List<PostModel> fromJsonList(List<dynamic> json) =>
-      json.map((i) => PostModel.fromJson(i)).toList() ?? [];
+      json.map((i) => PostModel.fromJson(i)).toList();
 }

@@ -26,7 +26,7 @@ class PostController {
   // EU SEI Q FERE O SOLID
   void changeLocale() {
     var locale;
-    if (Get.locale.countryCode == "BR") {
+    if (Get.locale?.countryCode?.contains("BR") ?? false) {
       locale = Locale('en', 'US');
     } else {
       locale = Locale('pt', 'BR');

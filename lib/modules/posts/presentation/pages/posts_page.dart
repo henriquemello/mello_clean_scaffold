@@ -14,7 +14,7 @@ class _PostsPageState extends State<PostsPage> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
       controller.getPosts();
     });
     super.initState();
@@ -23,6 +23,22 @@ class _PostsPageState extends State<PostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "appBarTittle".trParams(
+            {
+              "name": "Victor",
+            },
+          ),
+        ),
+      ),
+      floatingActionButton: ElevatedButton(
+        child: Text("btnChangeTheme".tr),
+        onPressed: () => Theme.of(context).brightness == Brightness.dark
+            ? Get.changeThemeMode(ThemeMode.light)
+            : Get.changeThemeMode(ThemeMode.dark),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SafeArea(
         child: Container(
           width: double.infinity,
@@ -31,11 +47,11 @@ class _PostsPageState extends State<PostsPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("btnSearch".tr),
                     onPressed: controller.getPosts,
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("btnChangeLocale".tr),
                     onPressed: controller.changeLocale,
                   ),
@@ -54,8 +70,8 @@ class _PostsPageState extends State<PostsPage> {
                                   final post =
                                       controller.postStore.listPosts[index];
                                   return CardPosts(
-                                    post.title.capitalizeFirst,
-                                    post.body.capitalizeFirst,
+                                    post.title.capitalizeFirst!,
+                                    post.body.capitalizeFirst!,
                                     onTap: () => Get.toNamed(
                                       Routes.post,
                                       arguments: post,

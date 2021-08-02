@@ -12,12 +12,13 @@ class DioHttpAdapter extends HttpAdapter {
     return HttpResponse(
       data: response.data,
       httpRequest: HttpRequest(
-          data: response.request.data,
-          headers: response.request.headers,
-          method: response.request.method,
-          path: response.request.path,
-          queryParameters: response.request.queryParameters),
-      statusCode: response.statusCode,
+        data: response.requestOptions.data,
+        headers: response.requestOptions.headers,
+        method: response.requestOptions.method,
+        path: response.requestOptions.path,
+        queryParameters: response.requestOptions.queryParameters,
+      ),
+      statusCode: response.statusCode ?? 0,
     );
   }
 
@@ -25,8 +26,8 @@ class DioHttpAdapter extends HttpAdapter {
   Future<HttpResponse> delete(
     String path, {
     data,
-    Map<String, dynamic> queryParameters,
-    Map<String, dynamic> headers,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
   }) {
     // TODO: implement delete
     throw UnimplementedError();
@@ -35,8 +36,8 @@ class DioHttpAdapter extends HttpAdapter {
   @override
   Future<HttpResponse> get(
     String path, {
-    Map<String, dynamic> queryParameters,
-    Map<String, dynamic> headers,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
   }) async {
     final response = await dio.get(path);
     return _parseResponse(response);
@@ -46,8 +47,8 @@ class DioHttpAdapter extends HttpAdapter {
   Future<HttpResponse> post(
     String path, {
     data,
-    Map<String, dynamic> queryParameters,
-    Map<String, dynamic> headers,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
   }) {
     // TODO: implement post
     throw UnimplementedError();
@@ -57,8 +58,8 @@ class DioHttpAdapter extends HttpAdapter {
   Future<HttpResponse> put(
     String path, {
     data,
-    Map<String, dynamic> queryParameters,
-    Map<String, dynamic> headers,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
   }) {
     // TODO: implement put
     throw UnimplementedError();

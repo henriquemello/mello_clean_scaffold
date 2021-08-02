@@ -6,10 +6,14 @@ class Messages extends Translations {
         'en_US': {
           'btnSearch': 'Search posts..',
           'btnChangeLocale': 'Change Locale',
+          'btnChangeTheme': 'Change theme',
+          'appBarTittle': 'Hi, @name. Welcome! ',
         },
         'pt_BR': {
           'btnSearch': 'Buscar posts..',
           'btnChangeLocale': 'Mudar localização',
+          'btnChangeTheme': 'Mudar tema',
+          'appBarTittle': 'Oi, @name. Bem-vindo!',
         },
       };
 }
