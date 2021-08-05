@@ -25,6 +25,12 @@ void main() {
       final searchButtonFinder = find.byKey(Key('search'));
       await tester.tap(searchButtonFinder);
 
+      await tester.pump();
+
+      // Espero encontrar um loading
+      final loadingFinder = find.byKey(Key('loading'));
+      expect(loadingFinder, findsOneWidget);
+
       // Espero as animações terminarem
       await tester.pumpAndSettle();
 

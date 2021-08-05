@@ -33,6 +33,7 @@ class UsersPage extends StatelessWidget {
                   builder: (context) {
                     return controller.userStore.isLoading
                         ? Center(
+                            key: Key('loading'),
                             child: CircularProgressIndicator(),
                           )
                         : ListView.builder(
