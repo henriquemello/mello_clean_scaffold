@@ -17,6 +17,8 @@ void main() {
       // Espera as animações iniciais terminarem
       await tester.pumpAndSettle();
 
+      await Future.delayed(Duration(seconds: 2));
+
       // Espero que exista um widget com a key "list" visível
       final listFinder = find.byKey(Key('list'));
       expect(listFinder, findsOneWidget);
@@ -34,6 +36,8 @@ void main() {
       // Espero as animações terminarem
       await tester.pumpAndSettle();
 
+      await Future.delayed(Duration(seconds: 2));
+
       // Espero que exista um widget com key "list" novamente
       expect(listFinder, findsOneWidget);
 
@@ -47,6 +51,8 @@ void main() {
 
       // Espero as animações terminarem
       await tester.pumpAndSettle();
+
+      await Future.delayed(Duration(seconds: 2));
     });
   });
 }
