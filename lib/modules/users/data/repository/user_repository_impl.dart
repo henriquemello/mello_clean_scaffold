@@ -17,4 +17,10 @@ class UserRepositoryImpl implements UserRepository {
     final listUserEntities = listUserModels.map((e) => UserMapper.toEntity(e)).toList();
     return listUserEntities;
   }
+
+  @override
+  Future<void> saveUser(UserEntity user) async {
+    final userModel = UserMapper.toModel(user);
+    await userDatasource.saveUser(userModel);
+  }
 }

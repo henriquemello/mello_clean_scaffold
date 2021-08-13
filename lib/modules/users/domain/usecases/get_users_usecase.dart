@@ -2,7 +2,7 @@ import 'package:clean_mello/modules/users/domain/entity/user_entity.dart';
 import 'package:clean_mello/modules/users/domain/repository/user_repository.dart';
 import 'package:injectable/injectable.dart';
 
-mixin GetUsersUsecase {
+abstract class GetUsersUsecase {
   Future<List<UserEntity>> call();
 }
 
