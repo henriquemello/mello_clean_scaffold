@@ -18,11 +18,11 @@ class UsersPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Buscar usuários"),
                 onPressed: onSearch,
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Limpar "),
                 onPressed: onClear,
               ),

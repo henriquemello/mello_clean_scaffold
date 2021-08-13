@@ -4,10 +4,17 @@ class HttpError implements Exception {
   final dynamic data;
   final int statusCode;
   final HttpRequest httpRequest;
+  final HttpErrors error;
 
   HttpError({
     this.data,
     this.statusCode,
     this.httpRequest,
+    this.error,
   });
+}
+
+enum HttpErrors {
+  badRequest,
+  serverError,
 }

@@ -39,9 +39,12 @@ class UserDatasourceImpl implements UserDatasource {
 
       //Sucesso
     } on HttpError catch (e) {
-      throw e.data;
+      print(e);
+      //Loga (e) no crashlytics
+
+      throw HttpErrors.badRequest;
     } catch (e) {
-      rethrow;
+      throw HttpErrors.serverError;
     }
   }
 }
