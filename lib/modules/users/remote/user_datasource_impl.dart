@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:html';
 
+import 'package:clean_mello/modules/core/errors.dart';
 import 'package:clean_mello/modules/core/modules/http/http_adapter.dart';
 import 'package:clean_mello/modules/core/modules/http/http_error.dart';
 import 'package:clean_mello/modules/users/data/datasource/user_datasource.dart';
@@ -29,22 +31,24 @@ class UserDatasourceImpl implements UserDatasource {
 
   @override
   Future<void> saveUser(UserModel user) async {
+    await Future.delayed(Duration(seconds: 3));
     try {
-      await Future.delayed(Duration(seconds: 3));
+      final response = await httpAdapter.post(
+        'https://jsonplaceholder.typicode.com/users',
+        data: user.toJson(),
+      );
 
-      // final response = await httpAdapter.post(
-      //   'https://jsonplaceholder.typicode.com/users',
-      //   data: user.toJson(),
-      // );
-
-      //Sucesso
-    } on HttpError catch (e) {
-      print(e);
-      //Loga (e) no crashlytics
-
-      throw HttpErrors.badRequest;
-    } catch (e) {
-      throw HttpErrors.serverError;
+      if (response.statusCode == HttpStatus.ok) {
+        //success
+      } else {
+        if (response.statusCode == HttpStatus.badRequest) {
+          throw HttpClientError(statusCode: EnumHttpErrors.badRequest);
+        } else {
+          throw HttpClientError(statusCode: EnumHttpErrors.serverError);
+        }
+      }
+    } on Exception catch (e) {
+      throw DatasourceError(message: e.toString());
     }
   }
 }

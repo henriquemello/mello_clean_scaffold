@@ -1,3 +1,4 @@
+import 'package:clean_mello/modules/core/errors.dart';
 import 'package:clean_mello/modules/core/modules/http/http_error.dart';
 import 'package:clean_mello/modules/users/data/datasource/user_datasource.dart';
 import 'package:clean_mello/modules/users/data/mapper/user_mapper.dart';
@@ -20,10 +21,10 @@ class UserRepositoryImpl implements UserRepository {
       final listUserEntities =
           listUserModels.map((e) => UserMapper.toEntity(e)).toList();
       return listUserEntities;
-    } on HttpError catch (e) {
-      throw e.error == HttpErrors.badRequest
-          ? DomainError.httpServerError
-          : DomainError.unexpectedError;
+    } on DatasourceError catch (_) {
+      rethrow;
+    } on Exception catch (e) {
+      throw RepositoryFailure(message: e.toString());
     }
   }
 
@@ -32,10 +33,10 @@ class UserRepositoryImpl implements UserRepository {
     try {
       final userModel = UserMapper.toModel(user);
       await userDatasource.saveUser(userModel);
-    } on HttpError catch (e) {
-      throw e.error == HttpErrors.badRequest
-          ? DomainError.httpServerError
-          : DomainError.unexpectedError;
+    } on Failure catch (_) {
+      rethrow;
+    } on Exception catch (e) {
+      throw RepositoryFailure(message: e.toString());
     }
   }
 }
