@@ -1,5 +1,4 @@
 import 'package:clean_mello/modules/core/errors.dart';
-import 'package:clean_mello/modules/core/modules/http/http_error.dart';
 import 'package:clean_mello/modules/users/presentation/stores/user_store.dart';
 import 'package:clean_mello/modules/users/presentation/user_presenter.dart';
 import 'package:injectable/injectable.dart';
@@ -18,9 +17,10 @@ class UserController {
       userStore.setListUsers(request);
     } on Failure catch (e) {
       if(e is DatasourceError)
-      print('error $e');
+      print('error no datasource $e');
     } on Exception catch (e) {
-
+      print(e);
+      //Show modal informando o erro ocorrido
     } finally {
       userStore.setLoading(false);
     }

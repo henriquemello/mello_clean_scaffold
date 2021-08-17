@@ -1,9 +1,7 @@
 import 'package:clean_mello/modules/core/errors.dart';
-import 'package:clean_mello/modules/core/modules/http/http_error.dart';
 import 'package:clean_mello/modules/users/data/datasource/user_datasource.dart';
 import 'package:clean_mello/modules/users/data/mapper/user_mapper.dart';
 import 'package:clean_mello/modules/users/domain/entity/user_entity.dart';
-import 'package:clean_mello/modules/users/domain/errors/domain_errors.dart';
 import 'package:clean_mello/modules/users/domain/repository/user_repository.dart';
 import 'package:injectable/injectable.dart';
 

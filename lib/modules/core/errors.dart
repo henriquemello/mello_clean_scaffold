@@ -18,9 +18,8 @@ class DatasourceError extends Failure {
   });
 }
 
-
 class HttpClientError extends Failure {
-  final EnumHttpErrors statusCode;
+  final int statusCode;
   @override
   final String message;
   HttpClientError({
@@ -28,13 +27,6 @@ class HttpClientError extends Failure {
     this.statusCode,
   });
 }
-enum EnumHttpErrors {
-  badRequest,
-  serverError,
-}
-
-enum DomainError { httpServerError, unexpectedError }
-
 
 class RepositoryFailure extends Failure {
   @override

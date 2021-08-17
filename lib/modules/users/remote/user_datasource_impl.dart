@@ -1,4 +1,5 @@
 import 'dart:convert';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 
 import 'package:clean_mello/modules/core/errors.dart';
@@ -42,9 +43,9 @@ class UserDatasourceImpl implements UserDatasource {
         //success
       } else {
         if (response.statusCode == HttpStatus.badRequest) {
-          throw HttpClientError(statusCode: EnumHttpErrors.badRequest);
+          throw HttpClientError(statusCode: HttpStatus.badRequest);
         } else {
-          throw HttpClientError(statusCode: EnumHttpErrors.serverError);
+          throw HttpClientError(statusCode: HttpStatus.internalServerError);
         }
       }
     } on Exception catch (e) {
