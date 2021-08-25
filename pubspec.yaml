@@ -23,12 +23,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  json_serializable:
-  injectable:
-  get_it:
-  mobx:
-  flutter_mobx:
-  dio:
+  json_serializable: 3.5.1
+  injectable: 1.1.2
+  get_it: 5.0.2
+  mobx: 1.2.0
+  flutter_mobx: 1.1.0+2
+  dio: 3.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
